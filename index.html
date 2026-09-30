@@ -25,6 +25,8 @@
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body>
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+
   <a class="skip-link" href="#home">Skip to content</a>
 
   <header class="site-header" id="site-header">
@@ -45,7 +47,7 @@
           <li><a href="#about">About</a></li>
           <li><a href="#work">Work Samples</a></li>
           <li><a href="#experience">Experience</a></li>
-          <li><a href="#contact">Certifications</a></li>
+          <li><a href="#certifications">Certifications</a></li>
         </ul>
         <a class="btn btn-primary nav-cta" href="#contact">Contact</a>
       </nav>
@@ -74,7 +76,7 @@
           </ul>
         </div>
 
-        <div class="hero-card" data-reveal>
+        <div class="hero-card" data-reveal data-tilt>
           <div class="avatar">
             <img src="assets/img/naveen-kumar.jpg" alt="Portrait of Naveen Kumar" width="579" height="772" />
           </div>
@@ -99,22 +101,22 @@
         </div>
 
         <div class="about-grid">
-          <article class="about-card" data-reveal>
+          <article class="about-card" data-reveal data-tilt>
             <span class="about-index">01</span>
             <h3>Instructional Design &amp; eLearning</h3>
             <p>Instructional Designer focused on creating engaging digital learning experiences, eLearning content, and learner-centred training solutions.</p>
           </article>
-          <article class="about-card" data-reveal>
+          <article class="about-card" data-reveal data-tilt>
             <span class="about-index">02</span>
             <h3>Learning Technology</h3>
             <p>Hands-on experience with Articulate 360 (Storyline &amp; Rise), Easy Generator, Canva, Vyond, LMS/LxP platforms, SABA, EdCast, and learning analytics.</p>
           </article>
-          <article class="about-card" data-reveal>
+          <article class="about-card" data-reveal data-tilt>
             <span class="about-index">03</span>
             <h3>Enterprise Learning Operations</h3>
             <p>Managed learning technology and content operations supporting 2,000+ active learners, including LMS administration, migration, learner support, and Instructor-Led Training (ILT) scheduling.</p>
           </article>
-          <article class="about-card" data-reveal>
+          <article class="about-card" data-reveal data-tilt>
             <span class="about-index">04</span>
             <h3>Business &amp; Learning Impact</h3>
             <p>Partnered with L&amp;D, HR, IT, and compliance teams to improve learning operations, achieving 30% faster issue resolution, 98% course-catalog accuracy, and 40% less manual reporting effort.</p>
@@ -132,7 +134,7 @@
         </div>
 
         <div class="work-grid">
-          <article class="work-card" data-reveal>
+          <article class="work-card" data-reveal data-tilt>
             <div class="work-thumb">
               <img src="assets/img/work-placeholder-02.svg" alt="Preview for a microlearning product knowledge course" loading="lazy" />
               <span class="work-badge">SCORM 1.2</span>
@@ -149,7 +151,7 @@
             </div>
           </article>
 
-          <article class="work-card" data-reveal>
+          <article class="work-card" data-reveal data-tilt>
             <div class="work-thumb">
               <img src="assets/img/work-placeholder-03.svg" alt="Preview for a leadership decision-making simulation" loading="lazy" />
               <span class="work-badge">SCORM 1.2</span>
@@ -166,7 +168,7 @@
             </div>
           </article>
 
-          <article class="work-card" data-reveal>
+          <article class="work-card" data-reveal data-tilt>
             <div class="work-thumb">
               <img src="assets/img/work-placeholder-06.svg" alt="Preview for a new-hire digital onboarding course" loading="lazy" />
               <span class="work-badge">SCORM 1.2</span>
@@ -241,20 +243,13 @@
           </div>
 
           <aside class="resume-side">
-            <div class="side-card" data-reveal>
+            <div class="side-card" data-reveal data-tilt>
               <h3>Education</h3>
               <p class="side-title">Bachelor's in Computer Science</p>
               <p class="side-meta">Asan Memorial College of Arts &amp; Science, University of Madras</p>
               <p class="side-date">2016 - 2019</p>
             </div>
-            <div class="side-card" data-reveal>
-              <h3>Certifications</h3>
-              <p class="side-title">Google Data Analytics Professional Certificate</p>
-              <p class="side-meta">Google</p>
-              <p class="side-date">Issued Jul 2025</p>
-              <p class="side-cred">Credential ID P06W2QP6JRH4</p>
-            </div>
-            <div class="side-card" data-reveal>
+            <div class="side-card" data-reveal data-tilt>
               <h3>Core strengths</h3>
               <ul class="chip-list">
                 <li>Instructional Design</li>
@@ -276,6 +271,93 @@
               </ul>
             </div>
           </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-certs" id="certifications">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <p class="eyebrow">Credentials</p>
+          <h2>Certifications</h2>
+          <p class="section-lead">Professional certifications and learning paths that keep my instructional design, learning analytics, and learning technology practice current. Open any card to view the original certificate.</p>
+        </div>
+
+        <div class="cert-grid">
+          <article class="cert-card" data-reveal>
+            <div class="cert-flip">
+              <div class="cert-face cert-front">
+                <span class="cert-issuer">
+                  <span class="cert-issuer-mark">G</span>
+                  Google
+                </span>
+                <p class="cert-seal">Google Data Analytics Professional Certificate</p>
+                <div class="cert-front-foot">
+                  <span class="cert-ribbon">9-course professional certificate</span>
+                  <button class="cert-flip-toggle" type="button" data-cert-flip>
+                    <svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 5V2L7 6l5 4V7a5 5 0 0 1 5 5h2a7 7 0 0 0-7-7Zm-5 5H5a7 7 0 0 0 7 7v3l5-4-5-4v3a5 5 0 0 1-5-5Z"/></svg>
+                    View details
+                  </button>
+                </div>
+              </div>
+              <div class="cert-face cert-back">
+                <h3>Google Data Analytics Professional Certificate</h3>
+                <p class="cert-meta">Google via Coursera &middot; Issued Jul 2025</p>
+                <p class="cert-cred"><strong>Credential:</strong> coursera.org/verify/professional-cert/PO6W2OP6JRH4</p>
+                <ul class="cert-skills">
+                  <li>Data Analysis</li>
+                  <li>SQL</li>
+                  <li>Tableau</li>
+                  <li>R Programming</li>
+                  <li>Data Visualization</li>
+                </ul>
+                <div class="cert-actions">
+                  <button class="btn btn-primary btn-sm" type="button" data-cert-open="assets/files/certificates/google-data-analytics-professional-certificate.pdf" data-cert-title="Google Data Analytics Professional Certificate">View certificate</button>
+                  <a class="btn btn-outline btn-sm" href="https://coursera.org/verify/professional-cert/PO6W2OP6JRH4" target="_blank" rel="noopener noreferrer">Verify credential</a>
+                  <button class="cert-flip-back" type="button" data-cert-flip>
+                    <svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+                    Back
+                  </button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="cert-card" data-reveal>
+            <div class="cert-flip">
+              <div class="cert-face cert-front">
+                <span class="cert-issuer">
+                  <span class="cert-issuer-mark">in</span>
+                  LinkedIn Learning
+                </span>
+                <p class="cert-seal">Build Your Skills as an Instructional Designer</p>
+                <div class="cert-front-foot">
+                  <span class="cert-ribbon">Learning path completed Sep 2026</span>
+                  <button class="cert-flip-toggle" type="button" data-cert-flip>
+                    <svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 5V2L7 6l5 4V7a5 5 0 0 1 5 5h2a7 7 0 0 0-7-7Zm-5 5H5a7 7 0 0 0 7 7v3l5-4-5-4v3a5 5 0 0 1-5-5Z"/></svg>
+                    View details
+                  </button>
+                </div>
+              </div>
+              <div class="cert-face cert-back">
+                <h3>Build Your Skills as an Instructional Designer</h3>
+                <p class="cert-meta">LinkedIn Learning &middot; Completed Sep 19, 2026 &middot; 6h 35m</p>
+                <p class="cert-cred"><strong>Certificate ID:</strong> 92671c406e8a9181b6e2be0c33030f8ade44d1dbb69646f8abb63472164da065</p>
+                <ul class="cert-skills">
+                  <li>Instructional Design</li>
+                  <li>Training and Development</li>
+                  <li>Learning Analytics</li>
+                </ul>
+                <div class="cert-actions">
+                  <button class="btn btn-primary btn-sm" type="button" data-cert-open="assets/files/certificates/linkedin-instructional-designer-learning-path.pdf" data-cert-title="Build Your Skills as an Instructional Designer">View certificate</button>
+                  <button class="cert-flip-back" type="button" data-cert-flip>
+                    <svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+                    Back
+                  </button>
+                </div>
+              </div>
+            </div>
+          </article>
         </div>
       </div>
     </section>
@@ -318,11 +400,29 @@
         <a href="#about">About</a>
         <a href="#work">Work Samples</a>
         <a href="#experience">Experience</a>
-        <a href="#contact">Certifications</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#contact">Contact</a>
       </nav>
     </div>
   </footer>
 
+  <div class="cert-modal" id="cert-modal" role="dialog" aria-modal="true" aria-labelledby="cert-modal-title" aria-hidden="true">
+    <div class="cert-modal-panel">
+      <div class="cert-modal-head">
+        <h3 id="cert-modal-title">Certificate</h3>
+        <div class="cert-modal-actions">
+          <a class="btn btn-outline btn-sm" id="cert-modal-download" href="#" download>Download</a>
+          <button class="cert-modal-close" type="button" data-cert-close aria-label="Close certificate viewer">&times;</button>
+        </div>
+      </div>
+      <div class="cert-modal-body">
+        <iframe id="cert-frame" title="Certificate preview" src="about:blank" loading="lazy"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/vendor/three.min.js"></script>
+  <script src="assets/js/three-bg.js" defer></script>
   <script src="assets/js/main.js" defer></script>
 </body>
 </html>
