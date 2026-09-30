@@ -5,6 +5,23 @@
   background: var(--bg);
 }
 
+[data-theme="dark"] .player-bar {
+  background: rgba(6, 14, 26, 0.85);
+}
+
+[data-theme="dark"] .player-toolbar {
+  background: rgba(7, 16, 28, 0.7);
+}
+
+[data-theme="dark"] .player-frame-wrap {
+  background: #04070f;
+}
+
+[data-theme="dark"] .player-back:hover,
+[data-theme="dark"] .info-list dd {
+  color: var(--ink);
+}
+
 .player-page [hidden] {
   display: none !important;
 }

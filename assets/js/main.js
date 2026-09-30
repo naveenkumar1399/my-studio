@@ -256,6 +256,59 @@
     );
   }
 
+  function initTheme() {
+    var toggle = document.getElementById("theme-toggle");
+    var root = document.documentElement;
+
+    function currentTheme() {
+      return root.getAttribute("data-theme") === "dark" ? "dark" : "light";
+    }
+
+    function updateToggle(theme) {
+      if (!toggle) return;
+      var goingDark = theme === "light";
+      toggle.setAttribute("aria-pressed", theme === "dark" ? "true" : "false");
+      toggle.setAttribute(
+        "aria-label",
+        goingDark ? "Switch to dark theme" : "Switch to light theme"
+      );
+    }
+
+    function applyTheme(theme) {
+      root.setAttribute("data-theme", theme);
+      try {
+        window.localStorage.setItem("nk-theme", theme);
+      } catch (error) {
+        /* storage unavailable */
+      }
+      var meta = document.querySelector('meta[name="theme-color"]');
+      if (meta) {
+        meta.setAttribute("content", theme === "dark" ? "#04070f" : "#eef4fa");
+      }
+      updateToggle(theme);
+      try {
+        document.dispatchEvent(
+          new CustomEvent("themechange", { detail: { theme: theme } })
+        );
+      } catch (error) {
+        /* CustomEvent unavailable */
+      }
+    }
+
+    if (!root.getAttribute("data-theme")) {
+      root.setAttribute("data-theme", "light");
+    }
+
+    updateToggle(currentTheme());
+
+    if (toggle) {
+      toggle.addEventListener("click", function () {
+        applyTheme(currentTheme() === "dark" ? "light" : "dark");
+      });
+    }
+  }
+
+  initTheme();
   initTilt();
   initCertificates();
   initCertificateFlip();

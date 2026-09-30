@@ -142,6 +142,24 @@
   iceLight.position.set(8, 5, 2);
   scene.add(iceLight);
 
+  function applyTheme(theme) {
+    var light = theme === "light";
+    scene.fog.color.setHex(light ? 0xdbe7f2 : 0x050b16);
+    particleMaterial.color.setHex(light ? 0x0d9488 : 0x7dd3fc);
+    particleMaterial.opacity = light ? 0.5 : 0.7;
+    ambient.intensity = light ? 1.05 : 0.75;
+    keyLight.intensity = light ? 0.9 : 1.15;
+    renderer.setClearColor(0x000000, light ? 0.04 : 0);
+  }
+
+  applyTheme(document.documentElement.getAttribute("data-theme") || "light");
+
+  document.addEventListener("themechange", function (event) {
+    var theme =
+      event.detail && event.detail.theme ? event.detail.theme : "light";
+    applyTheme(theme);
+  });
+
   var pointer = { x: 0, y: 0 };
   var target = { x: 0, y: 0 };
   var scrollRatio = 0;

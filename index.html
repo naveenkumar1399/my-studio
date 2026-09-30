@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Naveen Kumar | Instructional Designer &amp; LMS Administrator</title>
   <meta name="description" content="Naveen Kumar is an Instructional Designer and LMS Administrator with 7 years of experience creating engaging digital learning experiences and running enterprise learning operations." />
   <meta name="author" content="Naveen Kumar" />
-  <meta name="theme-color" content="#0b1f33" />
+  <meta name="theme-color" content="#eef4fa" />
 
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Naveen Kumar | Instructional Designer &amp; LMS Administrator" />
@@ -23,6 +23,18 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="assets/css/styles.css" />
+
+  <script>
+    (function () {
+      try {
+        var saved = window.localStorage.getItem("nk-theme");
+        var theme = saved === "dark" || saved === "light" ? saved : "light";
+        document.documentElement.setAttribute("data-theme", theme);
+      } catch (error) {
+        document.documentElement.setAttribute("data-theme", "light");
+      }
+    })();
+  </script>
 </head>
 <body>
   <canvas id="bg-canvas" aria-hidden="true"></canvas>
@@ -50,6 +62,10 @@
           <li><a href="#certifications">Certifications</a></li>
         </ul>
         <a class="btn btn-primary nav-cta" href="#contact">Contact</a>
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark theme" aria-pressed="false" title="Toggle light and dark theme">
+          <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 14.5A8 8 0 0 1 9.5 4a7 7 0 1 0 10.5 10.5Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5 19 19M19 5l-1.5 1.5M6.5 17.5 5 19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
       </nav>
     </div>
   </header>
