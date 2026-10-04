@@ -1227,8 +1227,8 @@ ul {
 
 .cert-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 26px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
   align-items: stretch;
 }
 
@@ -1679,6 +1679,37 @@ ul {
 
   .cert-flip {
     transition: none;
+  }
+}
+
+@media (min-width: 901px) and (max-width: 1080px) {
+  .cert-grid {
+    gap: 18px;
+  }
+
+  .cert-front {
+    padding: 22px 18px 18px;
+  }
+
+  .cert-seal {
+    font-size: 1.12rem;
+  }
+
+  .cert-issuer {
+    font-size: 0.64rem;
+    letter-spacing: 0.1em;
+    gap: 7px;
+  }
+
+  .cert-issuer-mark {
+    width: 26px;
+    height: 26px;
+  }
+}
+
+@media (max-width: 900px) {
+  .cert-grid {
+    grid-template-columns: 1fr;
   }
 }
 
