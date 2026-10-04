@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -14,8 +14,20 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="assets/css/styles.css" />
-  <link rel="stylesheet" href="assets/css/player.css" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=20261004e" />
+  <link rel="stylesheet" href="assets/css/player.css?v=20261004" />
+
+  <script>
+    (function () {
+      try {
+        var saved = window.localStorage.getItem("nk-theme");
+        var theme = saved === "dark" || saved === "light" ? saved : "light";
+        document.documentElement.setAttribute("data-theme", theme);
+      } catch (error) {
+        document.documentElement.setAttribute("data-theme", "light");
+      }
+    })();
+  </script>
 </head>
 <body class="player-page">
   <header class="player-bar">
@@ -116,6 +128,6 @@
   </main>
 
   <script src="https://cdn.jsdelivr.net/npm/scorm-again@3.3.7/dist/scorm12.min.js"></script>
-  <script src="assets/js/player.js" defer></script>
+  <script src="assets/js/player.js?v=20261004" defer></script>
 </body>
 </html>
