@@ -1203,12 +1203,14 @@ ul {
   margin-bottom: 36px;
 }
 
-.contact-phone[hidden] {
-  display: none;
+.contact-phone-toggle.is-revealed {
+  border-color: var(--border-strong);
+  color: var(--teal-400);
 }
 
-.contact-phone {
-  letter-spacing: 0.02em;
+.contact-phone-toggle #phone-text {
+  letter-spacing: 0.01em;
+  font-variant-numeric: tabular-nums;
 }
 
 .contact-list {

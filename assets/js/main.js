@@ -302,15 +302,21 @@
 
   function initPhoneReveal() {
     var trigger = document.getElementById("view-phone");
-    var phone = document.getElementById("contact-phone");
+    var label = document.getElementById("phone-text");
 
-    if (!trigger || !phone) return;
+    if (!trigger || !label) return;
+
+    var ctaText = label.textContent;
+    var phoneNumber = trigger.getAttribute("data-phone") || "";
 
     trigger.addEventListener("click", function () {
-      phone.hidden = false;
-      trigger.hidden = true;
-      trigger.setAttribute("aria-expanded", "true");
-      phone.focus();
+      var revealed = trigger.classList.toggle("is-revealed");
+      label.textContent = revealed ? phoneNumber : ctaText;
+      trigger.setAttribute("aria-pressed", revealed ? "true" : "false");
+      trigger.setAttribute(
+        "aria-label",
+        revealed ? "Hide phone number" : "View phone number"
+      );
     });
   }
 
