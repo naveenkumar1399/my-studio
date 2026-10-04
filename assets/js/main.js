@@ -308,8 +308,23 @@
     }
   }
 
+  function initPhoneReveal() {
+    var trigger = document.getElementById("view-phone");
+    var phone = document.getElementById("contact-phone");
+
+    if (!trigger || !phone) return;
+
+    trigger.addEventListener("click", function () {
+      phone.hidden = false;
+      trigger.hidden = true;
+      trigger.setAttribute("aria-expanded", "true");
+      phone.focus();
+    });
+  }
+
   initTheme();
   initTilt();
   initCertificates();
   initCertificateFlip();
+  initPhoneReveal();
 })();

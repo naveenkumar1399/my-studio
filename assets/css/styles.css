@@ -1193,6 +1193,14 @@ ul {
   margin-bottom: 36px;
 }
 
+.contact-phone[hidden] {
+  display: none;
+}
+
+.contact-phone {
+  letter-spacing: 0.02em;
+}
+
 .contact-list {
   display: flex;
   flex-wrap: wrap;
