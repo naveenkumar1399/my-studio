@@ -167,7 +167,6 @@
     var modal = document.getElementById("cert-modal");
     var frame = document.getElementById("cert-frame");
     var titleEl = document.getElementById("cert-modal-title");
-    var downloadEl = document.getElementById("cert-modal-download");
     var closeEls = Array.prototype.slice.call(
       document.querySelectorAll("[data-cert-close]")
     );
@@ -188,16 +187,9 @@
       var src = trigger.getAttribute("data-cert-open");
       var title = trigger.getAttribute("data-cert-title") || "Certificate";
       lastFocused = trigger;
-      frame.setAttribute("src", src);
+      frame.setAttribute("src", src + "#toolbar=0&navpanes=0&statusbar=0");
       frame.setAttribute("title", title);
       if (titleEl) titleEl.textContent = title;
-      if (downloadEl) {
-        downloadEl.setAttribute("href", src);
-        downloadEl.setAttribute(
-          "download",
-          src.split("/").pop() || "certificate.pdf"
-        );
-      }
       modal.classList.add("is-open");
       modal.setAttribute("aria-hidden", "false");
     }
