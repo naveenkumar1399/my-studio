@@ -889,7 +889,8 @@ ul {
 
 .work-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 340px));
+  justify-content: center;
   gap: 24px;
   perspective: 1400px;
 }
@@ -1743,10 +1744,6 @@ ul {
     max-width: 480px;
   }
 
-  .work-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
   .resume-layout {
     grid-template-columns: 1fr;
     gap: 40px;
@@ -1838,8 +1835,7 @@ ul {
     gap: 10px;
   }
 
-  .about-grid,
-  .work-grid {
+  .about-grid {
     grid-template-columns: 1fr;
   }
 
