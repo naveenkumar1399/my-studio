@@ -1,15 +1,6 @@
 {
   "courses": [
     {
-      "slug": "digital-accessibility-standard",
-      "title": "Digital Accessibility Standard",
-      "description": "Scenario-based digital accessibility compliance course covering the standard's requirements, with practice activities and an 80% mastery check.",
-      "scormVersion": "1.2",
-      "authoringTool": "Articulate Storyline 360",
-      "launch": "assets/scorm/digital-accessibility-standard/index_lms.html",
-      "available": true
-    },
-    {
       "slug": "assess-plan-change-standard",
       "title": "Assess & Plan - Change Standard",
       "description": "Interactive change-management module on assessing and planning against the standard, with scenario-based decisions and knowledge checks.",
