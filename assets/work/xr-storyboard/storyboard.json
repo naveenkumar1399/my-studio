@@ -1,0 +1,510 @@
+{
+  "procedure": "Replacing a Contaminated Filter in a Simulated Manufacturing Machine",
+  "modality": "XR / AR overlay on a simulated machine cell",
+  "disclosure": "Conceptual XR storyboard created independently as a portfolio demonstration.",
+  "schema": [
+    "Scene Number",
+    "Training Objective",
+    "Environment",
+    "Learner Position",
+    "3D Assets",
+    "Initial Object State",
+    "Instruction / Prompt",
+    "Learner Action",
+    "Correct Responses",
+    "Incorrect Responses",
+    "Safety Condition",
+    "Developer Notes",
+    "Completion Condition"
+  ],
+  "frames": [
+    {
+      "n": 1,
+      "slug": "frame-01",
+      "title": "Pre-Task Safety Briefing & Approach",
+      "tag": "APPROACH",
+      "image": "img/frame-01.png",
+      "fields": [
+        {
+          "label": "Scene Number",
+          "value": "FRAME 01"
+        },
+        {
+          "label": "Training Objective",
+          "value": "Establish the safe approach protocol and confirm work authorization before touching machine M-04."
+        },
+        {
+          "label": "Environment",
+          "value": "Simulated factory-floor cell; neutral grey walls, machine M-04 at bay 2, ambient industrial lighting, yellow floor boundary."
+        },
+        {
+          "label": "Learner Position",
+          "value": "Standing 3.0 m in front of the HMI, facing machine M-04."
+        },
+        {
+          "label": "3D Assets",
+          "value": "Machine M-04 shell, HMI panel, floor markings, PPE avatar hands, digital work-order placard, E-Stop mesh ESTOP_01."
+        },
+        {
+          "label": "Initial Object State",
+          "value": "Machine in READY mode; virtual DANGER beacon off; work order loaded but unacknowledged."
+        },
+        {
+          "label": "Instruction / Prompt",
+          "value": "\u201cReview the work order, confirm the machine can be isolated, then point at the nearest emergency stop.\u201d"
+        },
+        {
+          "label": "Learner Action",
+          "value": "Read the work order on the HMI; locate and highlight the E-Stop; state \u201cE-Stop identified.\u201d"
+        },
+        {
+          "label": "Correct Responses",
+          "value": "Highlights ESTOP_01 within 10 s; work order acknowledged; isolation permit confirmed."
+        },
+        {
+          "label": "Incorrect Responses",
+          "value": "Skips the work order; selects the wrong control; attempts to open the housing while READY."
+        },
+        {
+          "label": "Safety Condition",
+          "value": "Learner must remain outside the yellow boundary until LOTO is confirmed."
+        },
+        {
+          "label": "Developer Notes",
+          "value": "Log time-to-identify via gaze/controller raycast; E-Stop collider id = ESTOP_01; gate all later steps on permit flag."
+        },
+        {
+          "label": "Completion Condition",
+          "value": "Work order acknowledged AND E-Stop correctly identified."
+        }
+      ]
+    },
+    {
+      "n": 2,
+      "slug": "frame-02",
+      "title": "Locate & Identify the Contaminated Filter Housing",
+      "tag": "IDENTIFY",
+      "image": "img/frame-02.png",
+      "fields": [
+        {
+          "label": "Scene Number",
+          "value": "FRAME 02"
+        },
+        {
+          "label": "Training Objective",
+          "value": "Correctly identify filter housing F-2 among visually similar components."
+        },
+        {
+          "label": "Environment",
+          "value": "Same cell; AR overlay mode projects asset-tag anchors over the machine front panel."
+        },
+        {
+          "label": "Learner Position",
+          "value": "1.2 m in front of the machine, slightly right of centre; crouching permitted."
+        },
+        {
+          "label": "3D Assets",
+          "value": "Filter housing F-2, lookalike vents F-1 and F-3, contamination decal, AR label anchors, asset-tag plate."
+        },
+        {
+          "label": "Initial Object State",
+          "value": "Housing LEDs green; contamination indicator hidden until the learner inspects the housing."
+        },
+        {
+          "label": "Instruction / Prompt",
+          "value": "\u201cFind the filter housing flagged for replacement and confirm its asset tag \u2018F-2\u2019.\u201d"
+        },
+        {
+          "label": "Learner Action",
+          "value": "Raycast/point at F-2; read the asset tag aloud; dismiss the two lookalike components."
+        },
+        {
+          "label": "Correct Responses",
+          "value": "Selects F-2 and reads tag \u2018F-2\u2019; rules out lookalikes within 15 s."
+        },
+        {
+          "label": "Incorrect Responses",
+          "value": "Selects F-1 or F-3; mistakes an exhaust vent for the filter; no tag read."
+        },
+        {
+          "label": "Safety Condition",
+          "value": "No contact with surfaces above 40 \u00b0C; do not reach past the guard rails."
+        },
+        {
+          "label": "Developer Notes",
+          "value": "Use two false-positive colliders; fade/haze lookalikes after a correct pick; log tag-read event."
+        },
+        {
+          "label": "Completion Condition",
+          "value": "F-2 confirmed with an asset-tag read event logged."
+        }
+      ]
+    },
+    {
+      "n": 3,
+      "slug": "frame-03",
+      "title": "Power Down and Lockout / Tagout (LOTO)",
+      "tag": "ISOLATE",
+      "image": "img/frame-03.png",
+      "fields": [
+        {
+          "label": "Scene Number",
+          "value": "FRAME 03"
+        },
+        {
+          "label": "Training Objective",
+          "value": "Apply the correct energy-isolation sequence before the housing is opened."
+        },
+        {
+          "label": "Environment",
+          "value": "Factory cell; machine M-04 control cabinet at left-rear; isolation switch beside the cabinet."
+        },
+        {
+          "label": "Learner Position",
+          "value": "Standing at the control cabinet, then at the isolation switch."
+        },
+        {
+          "label": "3D Assets",
+          "value": "Control cabinet, main isolator lever, padlock, tag, voltage probe, multimeter display, arc-flash PPE gloves."
+        },
+        {
+          "label": "Initial Object State",
+          "value": "Machine READY; isolator UP (energized); no lock or tag attached."
+        },
+        {
+          "label": "Instruction / Prompt",
+          "value": "\u201cIsolate the machine, apply lock and tag, then verify zero-energy with the probe.\u201d"
+        },
+        {
+          "label": "Learner Action",
+          "value": "Toggle the isolator DOWN; attach padlock and tag; probe all three test points."
+        },
+        {
+          "label": "Correct Responses",
+          "value": "Isolator DOWN \u2192 lock + tag fitted \u2192 all 3 points read 0 V \u2192 state ISOLATED."
+        },
+        {
+          "label": "Incorrect Responses",
+          "value": "Locks without toggling the isolator; skips the probe test; probes only one point; leaves the tag blank."
+        },
+        {
+          "label": "Safety Condition",
+          "value": "Never open the housing before zero-energy is verified; arc-flash PPE required; stand clear of the cabinet."
+        },
+        {
+          "label": "Developer Notes",
+          "value": "Gate housing interaction on the LOTO state machine = ISOLATED; log the order of probe readings."
+        },
+        {
+          "label": "Completion Condition",
+          "value": "LOTO state ISOLATED and all probe readings equal 0 V."
+        }
+      ]
+    },
+    {
+      "n": 4,
+      "slug": "frame-04",
+      "title": "Open the Filter Housing Access Panel",
+      "tag": "ACCESS",
+      "image": "img/frame-04.png",
+      "fields": [
+        {
+          "label": "Scene Number",
+          "value": "FRAME 04"
+        },
+        {
+          "label": "Training Objective",
+          "value": "Open the access panel safely without damaging the seal."
+        },
+        {
+          "label": "Environment",
+          "value": "Factory cell; lower front access panel of machine M-04."
+        },
+        {
+          "label": "Learner Position",
+          "value": "Kneeling / crouched 0.8 m in front of the access panel."
+        },
+        {
+          "label": "3D Assets",
+          "value": "Access panel with four quarter-turn fasteners, hinge, warning decal, hold-open strut, tool tray."
+        },
+        {
+          "label": "Initial Object State",
+          "value": "Panel secured; four fasteners at 0\u00b0; seal intact."
+        },
+        {
+          "label": "Instruction / Prompt",
+          "value": "\u201cRelease the four fasteners in a cross pattern and swing the panel open. Do not force it.\u201d"
+        },
+        {
+          "label": "Learner Action",
+          "value": "Loosen fasteners in order 1-3-2-4; open the panel; secure it with the hold-open strut."
+        },
+        {
+          "label": "Correct Responses",
+          "value": "Cross-pattern order used; panel opens under control; hold-open strut engaged."
+        },
+        {
+          "label": "Incorrect Responses",
+          "value": "Forces the panel; loosens in sequence 1-2-3-4; drops the panel; ignores the strut."
+        },
+        {
+          "label": "Safety Condition",
+          "value": "Support the panel weight; keep fingers clear of the hinge pinch zone."
+        },
+        {
+          "label": "Developer Notes",
+          "value": "Detect fastener order via twist gesture; raise a penalty if applied force exceeds threshold."
+        },
+        {
+          "label": "Completion Condition",
+          "value": "Panel open, hold-open strut engaged, no seal-damage event recorded."
+        }
+      ]
+    },
+    {
+      "n": 5,
+      "slug": "frame-05",
+      "title": "Remove the Contaminated Filter",
+      "tag": "EXTRACT",
+      "image": "img/frame-05.png",
+      "fields": [
+        {
+          "label": "Scene Number",
+          "value": "FRAME 05"
+        },
+        {
+          "label": "Training Objective",
+          "value": "Extract the contaminated filter and contain all contaminants."
+        },
+        {
+          "label": "Environment",
+          "value": "Factory cell; open housing exposing the filter cartridge seated in the filter seat."
+        },
+        {
+          "label": "Learner Position",
+          "value": "Crouched directly in front of the filter seat."
+        },
+        {
+          "label": "3D Assets",
+          "value": "Filter cartridge, retention clip, drip tray, sealed waste bag, contamination particle VFX, nitrile gloves."
+        },
+        {
+          "label": "Initial Object State",
+          "value": "Cartridge seated and clipped; contamination decal on surface; drip tray empty."
+        },
+        {
+          "label": "Instruction / Prompt",
+          "value": "\u201cRelease the retention clip, place the tray, then pull the cartridge straight out into the waste bag.\u201d"
+        },
+        {
+          "label": "Learner Action",
+          "value": "Press the clip; position the drip tray; extract the cartridge; bag and seal it."
+        },
+        {
+          "label": "Correct Responses",
+          "value": "Tray placed BEFORE removal; cartridge extracted straight; waste bag sealed."
+        },
+        {
+          "label": "Incorrect Responses",
+          "value": "Pulls the filter without the tray; tilts the cartridge (debris spills); forgets to seal the bag."
+        },
+        {
+          "label": "Safety Condition",
+          "value": "Keep gloves on; do not shake or compress the filter; avoid skin contact with residue."
+        },
+        {
+          "label": "Developer Notes",
+          "value": "Particle system triggers a spill if tilt angle exceeds 25\u00b0; a waste-bag seal event is required."
+        },
+        {
+          "label": "Completion Condition",
+          "value": "Cartridge removed, zero spill, waste bag sealed."
+        }
+      ]
+    },
+    {
+      "n": 6,
+      "slug": "frame-06",
+      "title": "Inspect Seat and Prepare the New Filter",
+      "tag": "PREPARE",
+      "image": "img/frame-06.png",
+      "fields": [
+        {
+          "label": "Scene Number",
+          "value": "FRAME 06"
+        },
+        {
+          "label": "Training Objective",
+          "value": "Verify the seat condition and stage the replacement filter correctly."
+        },
+        {
+          "label": "Environment",
+          "value": "Factory cell; open housing plus an adjacent parts bench in the clean zone."
+        },
+        {
+          "label": "Learner Position",
+          "value": "Standing at the bench, then returning to the housing."
+        },
+        {
+          "label": "3D Assets",
+          "value": "Filter seat, magnet, sealed new filter cartridge, gasket set, lint-free wipe, packaging scanner."
+        },
+        {
+          "label": "Initial Object State",
+          "value": "Seat visibly used; new filter still sealed in its packaging on the bench."
+        },
+        {
+          "label": "Instruction / Prompt",
+          "value": "\u201cInspect the seat for damage and debris, then unseal the new filter onto the clean tray.\u201d"
+        },
+        {
+          "label": "Learner Action",
+          "value": "Wipe the seat; run the magnet for metal debris; unseal the filter onto the clean tray; check the part number."
+        },
+        {
+          "label": "Correct Responses",
+          "value": "Seat wiped and debris-free; seal part number matches the work order; gasket present."
+        },
+        {
+          "label": "Incorrect Responses",
+          "value": "Skips the seat inspection; opens the filter on the dirty floor; wrong part number; missing gasket."
+        },
+        {
+          "label": "Safety Condition",
+          "value": "Confirm the machine is still ISOLATED (lock + tag visible) before re-entering the cell."
+        },
+        {
+          "label": "Developer Notes",
+          "value": "Compare the scanned part number against the work order; randomly spawn debris for the inspection step."
+        },
+        {
+          "label": "Completion Condition",
+          "value": "Seat inspected clean and correct part number unsealed on the clean tray."
+        }
+      ]
+    },
+    {
+      "n": 7,
+      "slug": "frame-07",
+      "title": "Install the New Filter and Reseal the Housing",
+      "tag": "INSTALL",
+      "image": "img/frame-07.png",
+      "fields": [
+        {
+          "label": "Scene Number",
+          "value": "FRAME 07"
+        },
+        {
+          "label": "Training Objective",
+          "value": "Install the filter and close the housing to specification."
+        },
+        {
+          "label": "Environment",
+          "value": "Factory cell; open housing with the clean filter staged."
+        },
+        {
+          "label": "Learner Position",
+          "value": "Crouched at the housing opening."
+        },
+        {
+          "label": "3D Assets",
+          "value": "New filter cartridge, retention clip, new gasket, access panel, four fasteners, torque gauge."
+        },
+        {
+          "label": "Initial Object State",
+          "value": "Seat empty and clean; access panel open; new gasket staged on the tray."
+        },
+        {
+          "label": "Instruction / Prompt",
+          "value": "\u201cSeat the new filter, engage the clip, fit a new gasket, close the panel and torque the fasteners.\u201d"
+        },
+        {
+          "label": "Learner Action",
+          "value": "Insert the filter; engage the clip; fit the gasket; close the panel; tighten the fasteners to spec."
+        },
+        {
+          "label": "Correct Responses",
+          "value": "Filter fully seated; clip engaged with an audible click; fresh gasket fitted; torque within range."
+        },
+        {
+          "label": "Incorrect Responses",
+          "value": "Reuses the old gasket; cross-threads a fastener; clip not seated; over- or under-torques."
+        },
+        {
+          "label": "Safety Condition",
+          "value": "Do not pinch the gasket or seal; verify no tools are left inside the housing (FOD check)."
+        },
+        {
+          "label": "Developer Notes",
+          "value": "Torque range 4-6 N\u00b7m; haptic feedback on the clip click; tool-scan for foreign objects."
+        },
+        {
+          "label": "Completion Condition",
+          "value": "Filter seated, fresh gasket fitted, torque in range, no foreign objects."
+        }
+      ]
+    },
+    {
+      "n": 8,
+      "slug": "frame-08",
+      "title": "Restore Power, Verify and Sign Off",
+      "tag": "RETURN TO SERVICE",
+      "image": "img/frame-08.png",
+      "fields": [
+        {
+          "label": "Scene Number",
+          "value": "FRAME 08"
+        },
+        {
+          "label": "Training Objective",
+          "value": "Return the machine to service and complete documentation."
+        },
+        {
+          "label": "Environment",
+          "value": "Factory cell; control cabinet and HMI; sealed waste bag on the drip tray."
+        },
+        {
+          "label": "Learner Position",
+          "value": "At the cabinet to remove LOTO, then at the HMI."
+        },
+        {
+          "label": "3D Assets",
+          "value": "Isolator switch, padlock and tag, HMI, waste bin, work-order form, green status beacon."
+        },
+        {
+          "label": "Initial Object State",
+          "value": "LOTO state ISOLATED; access panel closed; sealed waste bag on the tray."
+        },
+        {
+          "label": "Instruction / Prompt",
+          "value": "\u201cRemove the lock and tag, restore power, run the verification cycle, then sign off and dispose of waste.\u201d"
+        },
+        {
+          "label": "Learner Action",
+          "value": "Remove the lock/tag; set the isolator UP; run the cycle; confirm status; submit the work order; bin the waste."
+        },
+        {
+          "label": "Correct Responses",
+          "value": "LOTO cleared; verification cycle passes; status READY; work order signed; waste disposed."
+        },
+        {
+          "label": "Incorrect Responses",
+          "value": "Restores power with the lock still in place; skips the verification cycle; leaves waste in the cell."
+        },
+        {
+          "label": "Safety Condition",
+          "value": "Ensure all personnel are clear before restoring power; the audible start warning must sound."
+        },
+        {
+          "label": "Developer Notes",
+          "value": "Query telemetry for healthy differential pressure after the cycle; log the sign-off timestamp."
+        },
+        {
+          "label": "Completion Condition",
+          "value": "Machine READY, verification passed, work order signed, waste disposed."
+        }
+      ]
+    }
+  ]
+}

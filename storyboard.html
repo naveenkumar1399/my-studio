@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>XR Storyboard | Naveen Kumar</title>
+  <meta name="description" content="Interactive XR training storyboard demonstration: replacing a contaminated filter in a simulated manufacturing machine. A conceptual portfolio piece by Naveen Kumar." />
+  <meta name="robots" content="noindex" />
+  <meta name="theme-color" content="#04070f" />
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b1f33'/%3E%3Ctext x='50%25' y='54%25' text-anchor='middle' dominant-baseline='middle' font-family='Arial, sans-serif' font-size='30' font-weight='700' fill='%2314b8a6'%3ENK%3C/text%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="assets/css/styles.css?v=20261007a" />
+  <link rel="stylesheet" href="assets/css/storyboard.css?v=20261009" />
+
+  <script>
+    (function () {
+      try {
+        var saved = window.localStorage.getItem("nk-theme");
+        var theme = saved === "dark" || saved === "light" ? saved : "light";
+        document.documentElement.setAttribute("data-theme", theme);
+      } catch (error) {
+        document.documentElement.setAttribute("data-theme", "light");
+      }
+    })();
+  </script>
+</head>
+<body class="storyboard-page">
+  <header class="sb-bar">
+    <div class="container sb-bar-inner">
+      <a class="sb-back" href="index.html#work">
+        <svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 1 0 1.4L10.4 12l4.3 4.3a1 1 0 0 1-1.4 1.4l-5-5a1 1 0 0 1 0-1.4l5-5a1 1 0 0 1 1.4 0Z"/></svg>
+        Work samples
+      </a>
+
+      <div class="sb-heading">
+        <h1 id="sb-title">XR Storyboard - Filter Replacement</h1>
+        <p class="sb-sub" id="sb-sub">Conceptual XR training storyboard</p>
+      </div>
+
+      <div class="sb-status" id="sb-status">8 frames</div>
+    </div>
+  </header>
+
+  <main class="sb-main">
+    <div class="container sb-container">
+      <section class="sb-stage" aria-label="XR storyboard viewer">
+        <div class="sb-toolbar">
+          <div class="sb-toolbar-meta">
+            <span class="sb-badge">XR Concept</span>
+            <span class="sb-toolbar-tool">Replacing a contaminated filter &middot; 8 frames</span>
+          </div>
+          <div class="sb-toolbar-actions">
+            <div class="sb-seg" role="group" aria-label="View mode">
+              <button type="button" data-view="interactive" class="is-active">Interactive</button>
+              <button type="button" data-view="deck">Deck view</button>
+            </div>
+            <button class="btn btn-outline btn-sm" id="sb-play" type="button">Play build</button>
+            <button class="btn btn-outline btn-sm" id="sb-reset" type="button">Reset</button>
+          </div>
+        </div>
+
+        <div class="sb-filmstrip" id="sb-filmstrip" role="tablist" aria-label="Storyboard frames"></div>
+
+        <div class="sb-viewport" data-view="interactive">
+          <div class="sb-scene" id="sb-scene">
+            <svg class="sb-base" viewBox="0 0 1000 563" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+              <defs>
+                <linearGradient id="mfront" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stop-color="#0e2b45"/>
+                  <stop offset="1" stop-color="#0a1b2c"/>
+                </linearGradient>
+                <linearGradient id="mtop" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#16456b"/>
+                  <stop offset="1" stop-color="#0d2942"/>
+                </linearGradient>
+                <linearGradient id="mside" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#0c2338"/>
+                  <stop offset="1" stop-color="#081827"/>
+                </linearGradient>
+              </defs>
+
+              <!-- floor grid -->
+              <g stroke="#38bdf8" stroke-opacity="0.10" stroke-width="1">
+                <line x1="60" y1="563" x2="300" y2="360"/>
+                <line x1="200" y1="563" x2="400" y2="360"/>
+                <line x1="340" y1="563" x2="500" y2="360"/>
+                <line x1="480" y1="563" x2="600" y2="360"/>
+                <line x1="620" y1="563" x2="700" y2="360"/>
+                <line x1="760" y1="563" x2="800" y2="360"/>
+                <line x1="900" y1="563" x2="900" y2="360"/>
+                <line x1="0" y1="540" x2="1000" y2="540"/>
+                <line x1="0" y1="500" x2="1000" y2="500"/>
+                <line x1="0" y1="460" x2="1000" y2="460"/>
+                <line x1="0" y1="420" x2="1000" y2="420"/>
+                <line x1="0" y1="382" x2="1000" y2="382"/>
+              </g>
+
+              <!-- hazard boundary -->
+              <ellipse cx="500" cy="500" rx="430" ry="120" fill="none" stroke="#fbbf24" stroke-opacity="0.16" stroke-width="2" stroke-dasharray="12 12"/>
+
+              <!-- control cabinet -->
+              <g>
+                <polygon points="150,300 280,300 340,258 210,258" fill="url(#mtop)" stroke="#38bdf8" stroke-opacity="0.45"/>
+                <polygon points="150,300 280,300 280,470 150,470" fill="url(#mfront)" stroke="#38bdf8" stroke-opacity="0.45"/>
+                <polygon points="280,300 340,258 340,428 280,470" fill="url(#mside)" stroke="#38bdf8" stroke-opacity="0.45"/>
+                <rect x="168" y="322" width="86" height="52" rx="4" fill="#071422" stroke="#7dd3fc" stroke-opacity="0.4"/>
+                <circle cx="182" cy="400" r="5" fill="#f43f5e" fill-opacity="0.8"/>
+                <circle cx="200" cy="400" r="5" fill="#fbbf24" fill-opacity="0.8"/>
+              </g>
+
+              <!-- machine M-04 -->
+              <g>
+                <polygon points="360,210 660,210 730,160 430,160" fill="url(#mtop)" stroke="#38bdf8" stroke-opacity="0.55"/>
+                <polygon points="360,210 660,210 660,440 360,440" fill="url(#mfront)" stroke="#38bdf8" stroke-opacity="0.55"/>
+                <polygon points="660,210 730,160 730,390 660,440" fill="url(#mside)" stroke="#38bdf8" stroke-opacity="0.55"/>
+                <!-- ventilation lines -->
+                <g stroke="#7dd3fc" stroke-opacity="0.22" stroke-width="2">
+                  <line x1="385" y1="240" x2="445" y2="240"/>
+                  <line x1="385" y1="256" x2="445" y2="256"/>
+                  <line x1="385" y1="272" x2="445" y2="272"/>
+                  <line x1="385" y1="288" x2="445" y2="288"/>
+                </g>
+                <!-- HMI -->
+                <rect x="540" y="232" width="112" height="72" rx="6" fill="#06121f" stroke="#7dd3fc" stroke-opacity="0.65"/>
+                <g stroke="#2dd4bf" stroke-opacity="0.7" stroke-width="2">
+                  <line x1="556" y1="258" x2="636" y2="258"/>
+                  <line x1="556" y1="274" x2="612" y2="274"/>
+                </g>
+                <!-- E-stop button -->
+                <circle cx="412" cy="330" r="16" fill="#1b0a0a" stroke="#fca5a5" stroke-opacity="0.75" stroke-width="2"/>
+                <circle cx="412" cy="330" r="9" fill="#ef4444"/>
+                <circle cx="412" cy="330" r="9" fill="none" stroke="#7f1d1d" stroke-width="1.5"/>
+                <!-- filter housing -->
+                <rect x="470" y="348" width="176" height="80" rx="6" fill="none" stroke="#fbbf24" stroke-opacity="0.5"/>
+                <line x1="480" y1="368" x2="636" y2="368" stroke="#fbbf24" stroke-opacity="0.3"/>
+                <!-- fasteners -->
+                <circle cx="492" cy="360" r="5" fill="none" stroke="#7dd3fc" stroke-opacity="0.7"/>
+                <circle cx="624" cy="360" r="5" fill="none" stroke="#7dd3fc" stroke-opacity="0.7"/>
+                <circle cx="492" cy="416" r="5" fill="none" stroke="#7dd3fc" stroke-opacity="0.7"/>
+                <circle cx="624" cy="416" r="5" fill="none" stroke="#7dd3fc" stroke-opacity="0.7"/>
+              </g>
+
+              <!-- operator floor ring -->
+              <ellipse cx="300" cy="512" rx="66" ry="24" fill="none" stroke="#2dd4bf" stroke-opacity="0.5" stroke-width="2"/>
+
+              <!-- status beacon -->
+              <circle cx="690" cy="150" r="9" fill="#22c55e" fill-opacity="0.85"/>
+              <circle cx="690" cy="150" r="16" fill="none" stroke="#22c55e" stroke-opacity="0.35"/>
+            </svg>
+            <div class="sb-markers" id="sb-markers"></div>
+
+            <span class="sb-corner tl"></span>
+            <span class="sb-corner tr"></span>
+            <span class="sb-corner bl"></span>
+            <span class="sb-corner br"></span>
+            <span class="sb-reticle"></span>
+
+            <span class="sb-frame-tag"><span class="sb-rec"></span><span id="sb-scene-tag">FRAME 01</span></span>
+
+            <div class="sb-viewport-nav">
+              <div class="sb-now" id="sb-now">&nbsp;</div>
+              <div class="sb-nav-btns">
+                <button class="sb-icon-btn" id="sb-prev" type="button" aria-label="Previous frame">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 1 0 1.4L10.4 12l4.3 4.3a1 1 0 0 1-1.4 1.4l-5-5a1 1 0 0 1 0-1.4l5-5a1 1 0 0 1 1.4 0Z"/></svg>
+                </button>
+                <button class="sb-icon-btn" id="sb-next" type="button" aria-label="Next frame">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.3 6.3a1 1 0 0 1 1.4 0l5 5a1 1 0 0 1 0 1.4l-5 5a1 1 0 0 1-1.4-1.4L13.6 12 9.3 7.7a1 1 0 0 1 0-1.4Z"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="sb-deck">
+            <img id="sb-deck-img" src="" alt="" />
+          </div>
+        </div>
+
+        <div class="sb-direction" id="sb-direction">
+          <div class="sb-slate">
+            <span class="sb-slate-num" id="sb-slate-num">01</span>
+            <div class="sb-slate-info">
+              <span class="sb-slate-tag" id="sb-slate-tag">APPROACH</span>
+              <span class="sb-slate-title" id="sb-slate-title">Frame title</span>
+              <span class="sb-slate-pos" id="sb-slate-pos">Learner position</span>
+            </div>
+          </div>
+          <div class="sb-beat">
+            <p class="sb-beat-line sb-beat-prompt">
+              <span class="sb-beat-k">Prompt</span>
+              <span class="sb-beat-t" id="sb-beat-prompt"></span>
+            </p>
+            <p class="sb-beat-line sb-beat-action">
+              <span class="sb-beat-k">Action</span>
+              <span class="sb-beat-t" id="sb-beat-action"></span>
+            </p>
+            <p class="sb-beat-line sb-beat-safety">
+              <span class="sb-beat-k">Safety</span>
+              <span class="sb-beat-t" id="sb-beat-safety"></span>
+            </p>
+          </div>
+        </div>
+
+        <div class="sb-build">
+          <div class="sb-build-head">
+            <span class="sb-build-title">Field build &middot; click to reveal in order</span>
+            <div class="sb-progress">
+              <div class="sb-dots" id="sb-dots" aria-hidden="true"></div>
+              <span class="sb-count" id="sb-count">0 / 13</span>
+              <button class="btn btn-primary btn-sm" id="sb-reveal" type="button">Reveal field</button>
+            </div>
+          </div>
+          <div class="sb-fields" id="sb-fields"></div>
+        </div>
+      </section>
+
+      <aside class="sb-info">
+        <div class="sb-card">
+          <h2>Storyboard details</h2>
+          <dl class="sb-info-list">
+            <div>
+              <dt>Procedure</dt>
+              <dd id="info-procedure">-</dd>
+            </div>
+            <div>
+              <dt>Frames</dt>
+              <dd>8 sequential scenes</dd>
+            </div>
+            <div>
+              <dt>Modality</dt>
+              <dd id="info-modality">-</dd>
+            </div>
+            <div>
+              <dt>Interaction</dt>
+              <dd>Gaze / raycast, staged field builds</dd>
+            </div>
+          </dl>
+          <div class="sb-disclosure" id="info-disclosure" style="margin-top:16px"></div>
+          <p class="sb-note">Keys: <span class="sb-kbd">&larr;</span> <span class="sb-kbd">&rarr;</span> frames, <span class="sb-kbd">Space</span> reveal field, <span class="sb-kbd">R</span> reset.</p>
+        </div>
+
+        <div class="sb-card">
+          <h2>13-field schema</h2>
+          <ul class="sb-schema" id="sb-schema"></ul>
+        </div>
+
+        <div class="sb-card">
+          <h2>About this sample</h2>
+          <p class="sb-disclosure">This viewer is a self-directed design exercise. It recreates the PowerPoint build in the browser so the storyboard can be explored online without sharing the source deck.</p>
+          <a class="btn btn-outline btn-sm" href="index.html#work" style="margin-top:16px">Back to work samples</a>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <script src="assets/js/storyboard.js?v=20261009" defer></script>
+</body>
+</html>
