@@ -1,6 +1,15 @@
 {
   "courses": [
     {
+      "slug": "mission-ares-build-the-dream-team",
+      "title": "Mission Ares: Build The Dream Team",
+      "description": "Space-mission simulation where learners assemble, manage, and lead an elite crew for the Mars mission, with scenario-based leadership decisions.",
+      "scormVersion": "2004",
+      "authoringTool": "Articulate Storyline 360",
+      "launch": "assets/scorm/mission-ares-build-the-dream-team/index_lms.html",
+      "available": true
+    },
+    {
       "slug": "digital-accessibility-standard",
       "title": "Digital Accessibility Standard",
       "description": "Scenario-based digital accessibility compliance course covering the standard's requirements, with practice activities and an 80% mastery check.",

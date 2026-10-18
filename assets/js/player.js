@@ -27,6 +27,8 @@
   var infoScore = document.getElementById("info-score");
 
   var statusTimer = null;
+  var activeApi = null;
+  var activeVersion = "1.2";
 
   function setSlugLabels(value) {
     if (slugA) slugA.textContent = value;
@@ -80,20 +82,49 @@
   }
 
   function readValue(name) {
-    if (!window.API || typeof window.API.LMSGetValue !== "function") return "";
+    if (!activeApi) return "";
     try {
-      return window.API.LMSGetValue(name);
+      if (activeVersion === "2004") {
+        if (typeof activeApi.GetValue !== "function") return "";
+        return activeApi.GetValue(name);
+      }
+      if (typeof activeApi.LMSGetValue !== "function") return "";
+      return activeApi.LMSGetValue(name);
     } catch (error) {
       return "";
     }
   }
 
   function pollStatus() {
-    var rawStatus = readValue("cmi.core.lesson_status");
-    var rawScore = readValue("cmi.core.score.raw");
-    var maxScore = readValue("cmi.core.score.max");
-    var scoreText = rawScore;
+    var rawStatus;
+    var rawScore;
+    var maxScore;
+    var scoreText;
 
+    if (activeVersion === "2004") {
+      var completion = readValue("cmi.completion_status");
+      var success = readValue("cmi.success_status");
+      rawScore = readValue("cmi.score.raw");
+      maxScore = readValue("cmi.score.max");
+
+      if (success === "passed" || success === "failed") {
+        rawStatus = success;
+      } else if (completion === "completed") {
+        rawStatus = "completed";
+      } else if (completion === "incomplete") {
+        rawStatus = "incomplete";
+      } else if (!completion || completion === "not attempted" || completion === "unknown") {
+        rawStatus = "not attempted";
+      } else {
+        rawStatus = completion;
+      }
+    } else {
+      rawStatus = readValue("cmi.core.lesson_status");
+      rawScore = readValue("cmi.core.score.raw");
+      maxScore = readValue("cmi.core.score.max");
+    }
+
+    scoreText = rawScore;
     if (rawScore !== "" && maxScore !== "" && maxScore !== undefined) {
       scoreText = rawScore + " / " + maxScore;
     }
@@ -101,12 +132,30 @@
     applyStatus(rawStatus, scoreText);
   }
 
-  function createApi() {
+  function createApi(course) {
+    var version = course && course.scormVersion ? String(course.scormVersion) : "1.2";
+    activeVersion = version === "2004" ? "2004" : "1.2";
+    activeApi = null;
+
+    if (activeVersion === "2004") {
+      if (typeof window.Scorm2004API !== "function") {
+        return false;
+      }
+      try {
+        window.API_1484_11 = new window.Scorm2004API({ autocommit: true, logLevel: 0 });
+        activeApi = window.API_1484_11;
+        return true;
+      } catch (error) {
+        return false;
+      }
+    }
+
     if (typeof window.Scorm12API !== "function") {
       return false;
     }
     try {
       window.API = new window.Scorm12API({ autocommit: true, logLevel: 0 });
+      activeApi = window.API;
       return true;
     } catch (error) {
       return false;
@@ -114,7 +163,7 @@
   }
 
   function launchCourse(course) {
-    var apiReady = createApi();
+    var apiReady = createApi(course);
 
     if (placeholder) placeholder.hidden = true;
     if (frameWrap) frameWrap.hidden = false;
