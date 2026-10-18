@@ -29,6 +29,7 @@
   var statusTimer = null;
   var activeApi = null;
   var activeVersion = "1.2";
+  var currentCourse = null;
 
   function setSlugLabels(value) {
     if (slugA) slugA.textContent = value;
@@ -95,11 +96,26 @@
     }
   }
 
+  function apiInitialized() {
+    if (!activeApi || typeof activeApi.isInitialized !== "function") {
+      return false;
+    }
+    try {
+      return activeApi.isInitialized();
+    } catch (error) {
+      return false;
+    }
+  }
+
   function pollStatus() {
     var rawStatus;
     var rawScore;
     var maxScore;
     var scoreText;
+
+    if (!apiInitialized()) {
+      return;
+    }
 
     if (activeVersion === "2004") {
       var completion = readValue("cmi.completion_status");
@@ -162,8 +178,13 @@
     }
   }
 
-  function launchCourse(course) {
+  function launchCourse(course, cacheBust) {
     var apiReady = createApi(course);
+    var launchUrl = course.launch;
+
+    if (cacheBust) {
+      launchUrl += (launchUrl.indexOf("?") > -1 ? "&" : "?") + "r=" + Date.now();
+    }
 
     if (placeholder) placeholder.hidden = true;
     if (frameWrap) frameWrap.hidden = false;
@@ -171,7 +192,7 @@
     if (fullscreenBtn) fullscreenBtn.hidden = false;
     if (infoPackage) infoPackage.textContent = "Imported";
 
-    frame.src = course.launch;
+    frame.src = launchUrl;
 
     if (!apiReady) {
       if (infoPackage) infoPackage.textContent = "SCORM run-time unavailable";
@@ -241,6 +262,7 @@
         }
 
         fillDetails(course);
+        currentCourse = course;
 
         if (course.available && course.launch) {
           launchCourse(course);
@@ -259,15 +281,10 @@
 
   if (restartBtn) {
     restartBtn.addEventListener("click", function () {
-      createApi();
-      if (frame) {
-        var base = frame.getAttribute("src") || "";
-        var clean = base.split("?r=")[0];
-        frame.src = clean + (clean.indexOf("?") > -1 ? "&" : "?") + "r=" + Date.now();
-      }
+      if (!currentCourse || !currentCourse.launch) return;
       if (statusTimer) window.clearInterval(statusTimer);
-      statusTimer = window.setInterval(pollStatus, 1200);
       applyStatus("", "");
+      launchCourse(currentCourse, true);
     });
   }
 
